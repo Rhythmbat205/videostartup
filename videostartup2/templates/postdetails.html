@@ -1,0 +1,33 @@
+{% block content %}
+
+<video width="500" controls="controls" preload="metadata">
+    <source src="{{ post.content.url }}#t=0.5" type="video/mp4">        
+</video> 
+<p>{{ post.title }}</p> 
+<p>{{ post.category }}</p>
+
+ <form method="post" action="" enctype="multipart/form-data" role="form">
+    {% csrf_token %}
+    <h2>Fill the below form to set up a meeting with us</h2>
+    <h4>Name</h4>
+    {{ form.name }}
+    <h4>Email</h4>
+    {{ form.email }}
+    <h4>Comfortable meeting time </h4>
+    {{ form.meeting_time }}
+    <h4>Comfortable meeting date</h4>
+    {{form.meeting_date }}
+    <h4>Any remarks</h4>
+    {{form.remarks }}
+
+      <div class="field">
+      <p class="control">
+        <button type="submit" name="action" class="button is-success">
+          Submit
+        </button>
+      </p>
+    </div>
+
+
+    
+{% endblock %}
